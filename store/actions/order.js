@@ -8,9 +8,11 @@ export const getOrder = token => async dispatch => {
         jwt: token
       }
     });
+    const orders = res.data.orders.reverse();
+
     dispatch({
       type: GET_ORDER,
-      payload: res.data.orders
+      payload: orders
     });
   } catch (err) {
     console.log(err.message);
